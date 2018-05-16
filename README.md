@@ -19,7 +19,7 @@ Make sure HackzillaTicketBundle is already present in your composer.json:
     }
 }
 ```
-Also make sure the Attachments additionnal feature is enabled.
+Also make sure the Attachments additional feature is enabled.
 
 ### Step 2: Download the bundle using composer
 Require the bundle with composer:
