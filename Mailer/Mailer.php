@@ -5,7 +5,7 @@ namespace Flodaq\TicketNotificationBundle\Mailer;
 use FOS\UserBundle\Doctrine\UserManager;
 use FOS\UserBundle\Model\User;
 use Hackzilla\Bundle\TicketBundle\Entity\TicketMessage;
-use Hackzilla\Bundle\TicketBundle\Entity\TicketWithAttachment;
+use Hackzilla\Bundle\TicketBundle\Model\TicketInterface;
 use Hackzilla\Bundle\TicketBundle\TicketEvents;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -33,11 +33,11 @@ class Mailer
     /**
      * Send a notification by e-mail to the concerned users when a ticket has been created|modified|deleted.
      *
-     * @param TicketWithAttachment $ticket
+     * @param TicketInterface $ticket
      * @param string $eventName
      * @return null
      */
-    public function sendTicketNotificationEmailMessage(TicketWithAttachment $ticket, $eventName)
+    public function sendTicketNotificationEmailMessage(TicketInterface $ticket, $eventName)
     {
         // Retrieve the creator
         /** @var User $creator */
@@ -79,7 +79,7 @@ class Mailer
         if ($message->getUser() !== $creator->getId()) {
             $recipients[] = $creator->getEmail();
         }
-        
+
         // Add every user with the ROLE_TICKET_ADMIN role
         /** @var User $user */
         foreach ($users as $user) {
