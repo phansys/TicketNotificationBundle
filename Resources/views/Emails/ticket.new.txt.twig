@@ -13,10 +13,11 @@
     }) }}
 
 {{ ticket.subject }}
-{{ ticket.messages|last.message|nl2br }}
-{% if ticket.messages|last.attachmentName %}
+{% set lastMessage = ticket.messages|last %}
+{{ lastMessage.message|nl2br }}
+{% if lastMessage.attachmentName is defined and lastMessage.attachmentName %}
 {{ 'LABEL_ATTACHMENT'|trans({}, 'HackzillaTicketBundle') }}
-{{ ticket.messages|last.attachmentName }}
+{{ lastMessage.attachmentName }}
 {% endif %}
 
 {{ 'emails.ticket.new.plainlink'|trans({

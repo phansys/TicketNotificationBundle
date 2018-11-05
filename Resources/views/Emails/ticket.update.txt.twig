@@ -1,7 +1,8 @@
+{% set lastMessage = ticket.messages|last %}
 {{ 'emails.ticket.update.content'|trans({
         '%number%': ticket.id,
-        '%sender%': ticket.messages|last.message.userObject.username,
-        '%date%': ticket.messages|last.createdAt|date('LABEL_DATE_TIME_FORMAT'|trans)
+        '%sender%': lastMessage.userObject.username,
+        '%date%': lastMessage.createdAt|date('LABEL_DATE_TIME_FORMAT'|trans)
     }) }}
 
 {{ ticket.subject }}
@@ -12,10 +13,10 @@
         '%priority%': ticket.priorityString|trans
     }) }}
 
-{{ ticket.messages|last.message|nl2br }}
-{% if ticket.messages|last.attachmentName %}
+{{ lastMessage.message|nl2br }}
+{% if lastMessage.attachmentName is defined and lastMessage.attachmentName %}
 {{ 'LABEL_ATTACHMENT'|trans }}
-{{ ticket.messages|last.attachmentName }}
+{{ lastMessage.attachmentName }}
 {% endif %}
 
 {{ 'emails.ticket.update.plainlink'|trans({

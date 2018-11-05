@@ -1,9 +1,10 @@
 <html>
 <body>
+{% set lastMessage = ticket.messages|last %}
 <p>{{ 'emails.ticket.update.content'|trans({
         '%number%': ticket.id,
-        '%sender%': ticket.messages|last.message.userObject.username,
-        '%date%': ticket.messages|last.createdAt|date('LABEL_DATE_TIME_FORMAT'|trans)
+        '%sender%': lastMessage.userObject.username,
+        '%date%': lastMessage.createdAt|date('LABEL_DATE_TIME_FORMAT'|trans)
     }) }}</p>
 <div style="width:100%;background-color:#f0f0f0;border:1px solid #000;">
     <p style="margin:0;padding:20px 20px 0;"><b>{{ ticket.subject }}</b></p>
@@ -15,11 +16,11 @@
                 '%priority%': ticket.priorityString|trans
             }) }}</li>
     </ul>
-    <p style="margin:0;padding:20px;">{{ ticket.messages|last.message|nl2br }}</p>
-    {% if ticket.messages|last.attachmentName %}
+    <p style="margin:0;padding:20px;">{{ lastMessage.message|nl2br }}</p>
+    {% if lastMessage.attachmentName is defined and lastMessage.attachmentName %}
     <p style="margin:0;padding:0 20px 20px;">
         {{ 'LABEL_ATTACHMENT'|trans }}
-        {{ ticket.messages|last.attachmentName }}
+        {{ lastMessage.attachmentName }}
     </p>
     {% endif %}
 </div>
