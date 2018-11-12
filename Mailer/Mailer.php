@@ -143,7 +143,7 @@ class Mailer
      * @param $args
      * @param $format
      */
-    private function addMessagePart(\Swift_Mime_SimpleMessage &$message, $template, $args, $format)
+    private function addMessagePart(\Swift_Mime_SimpleMessage $message, $template, $args, $format)
     {
         switch ($format) {
             case 'text/plain':
