@@ -3,15 +3,15 @@
         '%number%': ticket.id,
         '%sender%': lastMessage.userObject.username,
         '%date%': lastMessage.createdAt|date('LABEL_DATE_TIME_FORMAT'|trans)
-    }) }}
+    }, 'FlodaqTicketNotificationBundle') }}
 
 {{ ticket.subject }}
 * {{ 'HEADING_STATUS'|trans }} {{ 'emails.ticket.update.status'|trans({
         '%status%': ticket.statusString|trans
-    }) }}
+    }, 'FlodaqTicketNotificationBundle') }}
 * {{ 'HEADING_PRIORITY'|trans }} {{ 'emails.ticket.update.priority'|trans({
         '%priority%': ticket.priorityString|trans
-    }) }}
+    }, 'FlodaqTicketNotificationBundle') }}
 
 {{ lastMessage.message|nl2br }}
 {% if lastMessage.attachmentName is defined and lastMessage.attachmentName %}
@@ -21,4 +21,4 @@
 
 {{ 'emails.ticket.update.plainlink'|trans({
         '%link%': url('hackzilla_ticket_show', { 'ticketId': ticket.id })
-    }) }}
+    }, 'FlodaqTicketNotificationBundle') }}
