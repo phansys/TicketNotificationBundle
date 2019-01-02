@@ -31,7 +31,7 @@
     },
     "require-dev": {
         "swiftmailer/swiftmailer": "^5.1|^6.0",
-        "symfony/phpunit-bridge": "^3.2|^4.0"
+        "symfony/phpunit-bridge": "^3.4.19|^4.0"
     },
     "conflict": {
         "phpunit/phpunit": "<5.4.3"
