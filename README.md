@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/phansys/TicketNotificationBundle.svg?branch=master)](https://travis-ci.org/phansys/TicketNotificationBundle)
+
 # E-mail notifications for Hackzilla Ticketing Bundle
 Simple add-on bundle that is build on top of Hackzilla Ticketing bundle in order
 to provide automatic e-mail notifications when a ticket is created or modified.
