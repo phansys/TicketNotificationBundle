@@ -30,8 +30,8 @@
         "symfony/swiftmailer-bundle": "^2.3.9|^3.0"
     },
     "require-dev": {
-        "swiftmailer/swiftmailer": "^5.1",
-        "symfony/phpunit-bridge": "^3.2 || ^4.0"
+        "swiftmailer/swiftmailer": "^5.1|^6.0",
+        "symfony/phpunit-bridge": "^3.2|^4.0"
     },
     "conflict": {
         "phpunit/phpunit": "<5.4.3"
