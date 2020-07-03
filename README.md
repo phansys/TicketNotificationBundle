@@ -16,8 +16,8 @@ Make sure HackzillaTicketBundle is already present in your composer.json:
 ```json
 {
     "require": {
-        "hackzilla/ticket-bundle": "^3.0@dev",
-        "friendsofsymfony/user-bundle": "^2.0@dev"
+        "hackzilla/ticket-bundle": "^3.4",
+        "friendsofsymfony/user-bundle": "^2.0"
     }
 }
 ```
